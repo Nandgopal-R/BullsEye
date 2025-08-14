@@ -1,11 +1,11 @@
 meta {
-  name: get companies
+  name: get_stock_details
   type: http
   seq: 1
 }
 
 get {
-  url: http://localhost:3000/companies?symbol=NFLX
+  url: http://localhost:3000/stockDetails?symbol=NFLX
   body: none
   auth: inherit
 }
