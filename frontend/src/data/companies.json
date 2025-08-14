@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Apple Inc.",
+    "symbol": "AAPL"
+  },
+  {
+    "name": "Microsoft Corporation",
+    "symbol": "MSFT"
+  },
+  {
+    "name": "Alphabet Inc.",
+    "symbol": "GOOGL"
+  },
+  {
+    "name": "Amazon.com Inc.",
+    "symbol": "AMZN"
+  },
+  {
+    "name": "NVIDIA Corporation",
+    "symbol": "NVDA"
+  },
+  {
+    "name": "Tesla, Inc.",
+    "symbol": "TSLA"
+  },
+  {
+    "name": "Meta Platforms Inc.",
+    "symbol": "META"
+  },
+  {
+    "name": "Netflix Inc.",
+    "symbol": "NFLX"
+  },
+  {
+    "name": "Adobe Inc.",
+    "symbol": "ADBE"
+  },
+  {
+    "name": "Salesforce Inc.",
+    "symbol": "CRM"
+  },
+  {
+    "name": "PayPal Holdings Inc.",
+    "symbol": "PYPL"
+  },
+  {
+    "name": "Intel Corporation",
+    "symbol": "INTC"
+  }
+]
