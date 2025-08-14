@@ -5,9 +5,13 @@ meta {
 }
 
 get {
-  url: http://localhost:3000/companies
+  url: http://localhost:3000/companies?symbol=NFLX
   body: none
   auth: inherit
+}
+
+params:query {
+  symbol: NFLX
 }
 
 settings {

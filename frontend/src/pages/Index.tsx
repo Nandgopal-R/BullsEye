@@ -22,9 +22,9 @@ const Index = () => {
     const loadCompanies = async () => {
       try {
         setIsLoadingCompanies(true);
-        const data = await stockService.getCompanies();
+        const data = await stockService.getCompaniesFromAPI();
         setCompanies(data);
-        
+
         // Auto-select first company for better UX
         if (data.length > 0) {
           handleSelectCompany(data[0].symbol);
@@ -52,11 +52,11 @@ const Index = () => {
       setIsLoadingStocks(true);
       setError(null);
       setSelectedCompany(symbol);
-      
-      const response = await stockService.getStockData(symbol);
+
+      const response = await stockService.getStockDataFromAPI(symbol);
       setStockData(response.data);
       setStockInfo(response.info);
-      
+
       toast({
         title: "Success",
         description: `Loaded data for ${symbol}`,
@@ -66,7 +66,7 @@ const Index = () => {
       setError(errorMessage);
       setStockData([]);
       setStockInfo(null);
-      
+
       toast({
         title: "Error",
         description: errorMessage,
@@ -95,12 +95,12 @@ const Index = () => {
 
   const getPriceChange = () => {
     if (stockData.length < 2) return { change: 0, changePercent: 0 };
-    
+
     const current = stockData[stockData.length - 1].price;
     const previous = stockData[stockData.length - 2].price;
     const change = current - previous;
     const changePercent = (change / previous) * 100;
-    
+
     return { change, changePercent };
   };
 
@@ -121,7 +121,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header onToggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
-      
+
       <div className="flex">
         <Sidebar
           companies={companies}
@@ -130,7 +130,7 @@ const Index = () => {
           isOpen={isSidebarOpen}
           onClose={closeSidebar}
         />
-        
+
         <main className="flex-1 p-6 md:ml-0">
           <div className="max-w-7xl mx-auto space-y-6">
             {selectedCompanyData && stockInfo && (
@@ -143,7 +143,7 @@ const Index = () => {
                 stockInfo={stockInfo}
               />
             )}
-            
+
             <StockChart
               data={stockData}
               isLoading={isLoadingStocks}

@@ -27,38 +27,39 @@ export interface StockResponse {
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 export const stockService = {
-  async getCompanies(): Promise<Company[]> {
-    await delay(500); // Simulate API delay
-    return companiesData;
-  },
-
-  async getStockData(symbol: string): Promise<StockResponse> {
-    await delay(800); // Simulate API delay
-    
-    const stockInfo = (stockData as any)[symbol];
-    
-    if (!stockInfo) {
-      throw new Error(`Stock data not found for symbol: ${symbol}`);
-    }
-
-    // In a real implementation, this would make an actual HTTP request:
-    // const response = await fetch(`/api/stocks/${symbol}`);
-    // if (!response.ok) throw new Error('Failed to fetch stock data');
-    // return response.json();
-
-    return stockInfo;
-  },
+  // async getCompanies(): Promise<Company[]> {
+  //   await delay(500); // Simulate API delay
+  //   return companiesData;
+  // },
+  //
+  // async getStockData(symbol: string): Promise<StockResponse> {
+  //   await delay(800); // Simulate API delay
+  //
+  //   const stockInfo = (stockData as any)[symbol];
+  //
+  //   if (!stockInfo) {
+  //     throw new Error(`Stock data not found for symbol: ${symbol}`);
+  //   }
+  //
+  //   // In a real implementation, this would make an actual HTTP request:
+  //   // const response = await fetch(`/api/stocks/${symbol}`);
+  //   // if (!response.ok) throw new Error('Failed to fetch stock data');
+  //   // return response.json();
+  //
+  //   return stockInfo;
+  // },
 
   // Method to simulate real API call (commented out for now)
-  /*
+
   async getStockDataFromAPI(symbol: string): Promise<StockResponse> {
     try {
-      const response = await fetch(`/api/stocks/${symbol}`);
-      
+      console.log(`Fetching stock data for symbol: ${symbol}`);
+      const response = await fetch(`http://localhost:3000/stockDetails?symbol=${symbol}`);
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
+
       return await response.json();
     } catch (error) {
       if (error instanceof Error) {
@@ -70,12 +71,12 @@ export const stockService = {
 
   async getCompaniesFromAPI(): Promise<Company[]> {
     try {
-      const response = await fetch('/api/companies');
-      
+      const response = await fetch('http://localhost:3000/companies');
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
+
       return await response.json();
     } catch (error) {
       if (error instanceof Error) {
@@ -84,5 +85,4 @@ export const stockService = {
       throw new Error('Failed to fetch companies');
     }
   }
-  */
 };
