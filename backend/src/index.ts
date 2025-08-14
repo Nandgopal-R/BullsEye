@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import stockDetailsRouter from "./routes/stockDetails.routes.ts";
+import stockDetailsRouter from "./routes/stockDetails.ts";
 import companyRouter from "./routes/company.ts";
 import dotenv from "dotenv";
 
